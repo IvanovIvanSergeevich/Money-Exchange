@@ -1,6 +1,5 @@
 // PLEASE DON'T change function name
 module.exports = function makeExchange(currency) {
-
     if(currency<=10000) {
         var cash = [];
         cash[0] = {
@@ -28,6 +27,7 @@ module.exports = function makeExchange(currency) {
             value: 1,
             count: 0
         }
+
         var i;
         for (i = 0; i < cash.length; i++) {
             if (currency >= cash[i].value) {
@@ -35,9 +35,9 @@ module.exports = function makeExchange(currency) {
                 currency %= cash[i].value;
             }
             else cash[i].count = undefined;
-
         }
-        var name, result = {};
+
+        var result = {};
         for (i = 0; i < cash.length; i++) {
             if (cash[i].count != undefined) {
                 result[cash[i].name] = cash[i].count;
